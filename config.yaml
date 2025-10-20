@@ -1,0 +1,24 @@
+mongo:
+  uri: "mongodb://localhost:27017"
+  db_name: "hibp_data"
+
+hibp:
+  base_url: "https://haveibeenpwned.com/api/v3"
+  pwned_passwords_url: "https://api.pwnedpasswords.com/range"
+  user_agent: "MyHibpETL/1.0"
+  api_key_env: "HIBP_API_KEY"
+endpoints:
+  - name: breached_account
+    path: "/breachedaccount/{account}"
+    params:
+      truncateResponse: false
+  - name: paste_account
+    path: "/pasteaccount/{account}"
+  - name: breaches
+    path: "/breaches"
+  - name: breach_metadata
+    path: "/breach/{name}"
+  - name: domain_search
+    path: "/breacheddomain/{domain}"
+  - name: pwned_passwords
+    path: ""  # handled separately
